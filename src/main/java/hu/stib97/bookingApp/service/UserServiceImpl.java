@@ -7,6 +7,7 @@ import hu.stib97.bookingApp.service.interfaces.UserServiceI;
 import hu.stib97.bookingApp.service.interfaces.UserValidatorI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +22,15 @@ public class UserServiceImpl implements UserServiceI {
     @Autowired
     private UserValidatorI validator;
 
+    private User user;
+
 
     @Override
     public Optional<User> login(String username, String password) {
         Optional<User> optionalUser = userRepository.findByName(username);
-        return optionalUser.filter(user -> user.getPassword().equals(password));
+        Optional<User> userr =  optionalUser.filter(user -> user.getPassword().equals(password));
+        this.user = userr.get();
+        return userr;
     }
 
     @Override
@@ -134,6 +139,10 @@ public class UserServiceImpl implements UserServiceI {
         return ret;
     }
 
+    @Override
+    public User getUser() {
+        return user;
+    }
 
 
 

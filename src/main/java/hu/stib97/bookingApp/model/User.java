@@ -1,5 +1,6 @@
 package hu.stib97.bookingApp.model;
 
+import hu.stib97.bookingApp.security.UserRole;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Cascade;
@@ -31,6 +32,10 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     @Column(name = "friends")
     private List<User> friends = new ArrayList<>();
+
+    @Column(name = "role")
+    @Enumerated(value = EnumType.STRING)
+    private UserRole role;
 
     public User(String name, String emailAddress, String password) {
         this.name = name;
@@ -89,6 +94,14 @@ public class User {
 
     public void setFriends(List<User> friends) {
         this.friends = friends;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
     }
 
     @Override
