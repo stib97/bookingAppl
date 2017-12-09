@@ -36,6 +36,5 @@ public interface UserServiceI {
 
     void addLending(User user, Lending lend);
 
-
     User getUser();
 }

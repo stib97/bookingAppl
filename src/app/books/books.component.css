@@ -1,0 +1,53 @@
+body {
+  padding: 20px;
+}
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }
+  .b {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 23em;
+  }
+  .b li {
+    cursor: pointer;
+  }
+  .b li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+  }
+  .b li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+  }
+  .b .text {
+    position: relative;
+    top: -3px;
+  }
+ h1{
+  color: #800000;
+ }
+
+ #title {
+   margin-right: 30px;
+   padding: 3px;
+ }
+
+ #author {
+  margin-right: 12px;
+  padding: 3px;
+ }
+
+ button {
+   height: 27px;
+   text-align: center;
+   font-size: 13px;
+   background-color: #4d0000;
+ }
+
+ #ts {
+  font-size: 28px;
+  font-family: 'Josefin Slab', serif;
+ }

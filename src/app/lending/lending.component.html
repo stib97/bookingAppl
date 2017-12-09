@@ -1,0 +1,44 @@
+<body>
+
+<h1>Lendings</h1>
+
+<br>
+
+<div>
+  <label id="date">Date: </label>
+  <input type="text" name="date" required class="from-control" ngModel #date="ngModel">
+</div>
+<div>
+  <label id="bookid">Book: </label>
+  <input type="text" name="bookid" required class="from-control" ngModel #bookid="ngModel">
+</div>
+<div>
+  <label id="movieid">Movie: </label>
+  <input type="text" name="movieid" required class="from-control" ngModel #movieid="ngModel">
+</div>
+<div>
+  <label id="userid">User: </label>
+  <input type="text" name="userid" required class="from-control" ngModel #userid="ngModel">
+  <button type="button" (click)="addLending(date, bookid, movieid, userid)"style="width:70px;margin-left:13px">
+    <label style="color:white">Add</label></button>
+</div>
+
+<br>
+
+<ul class="l">
+  <li *ngFor="let lending of lendings" [class.selected]="lending === selectedLending" (click)="onSelect(lending)">
+    <button type="button" (click)="removeLending(lending)" style="margin-right:17px"><label style="color:white">Remove</label></button>
+    <span id="ls">#{{lending.id}}</span>
+  </li>
+</ul>
+
+<div *ngIf="selectedLending">
+      <h2>LENDING details</h2>
+      <div><span style="margin-right:20px;margin-bottom:25px">date: </span><label style="font-size:23px">{{selectedLending.date}}</label></div>
+      <div><span style="margin-right:20px;margin-bottom:25px">book: </span><label style="font-size:23px">{{b}}</label></div>
+      <div><span style="margin-right:12px;margin-bottom:25px">movie: </span><label style="font-size:23px">{{m}}</label></div>
+      <div><span style="margin-right:27px">user: </span><label style="font-size:23px">{{u}}</label></div>
+    
+</div>
+
+</body>

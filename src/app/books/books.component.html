@@ -1,0 +1,35 @@
+<body>
+
+<h1>Books in the store</h1>
+
+<br>
+
+<h4>You can add new book to the list.</h4>
+
+<div>
+  <label id="title">Title: </label>
+  <input type="text" name="bookTitle" required class="from-control" ngModel #bookTitle="ngModel">
+  </div>
+<div>
+  <label id="author">Author: </label>
+  <input type="text" name="bookAuthor" required class="from-control" ngModel #bookAuthor="ngModel">
+  <button type="button" (click)="addBook(bookTitle, bookAuthor)"style="width:70px;margin-left:13px"><label style="color:white">Add</label></button>
+</div>
+
+<br>
+
+<ul class="b">
+  <li *ngFor="let book of books" [class.selected]="book === selectedBook" (click)="onSelect(book)">
+    <button type="button" (click)="removeBook(book)" style="margin-right:17px"><label style="color:white">Remove</label></button>
+    <span id="ts">{{book.title}}</span>
+  </li>
+</ul>
+
+<div *ngIf="selectedBook">
+
+  <h2>{{ selectedBook.title | uppercase }} details</h2>
+  <div><span style="margin-right:20px">author: </span><label style="font-size:23px">{{selectedBook.author}}</label></div>
+
+</div>
+
+</body>

@@ -1,0 +1,44 @@
+<body>
+
+
+
+<h1>Users</h1>
+
+<br>
+
+<div>
+    <label id="name">Name: </label>
+    <input type="text" name="userName" required class="from-control" ngModel #userName="ngModel">
+</div>
+<div>
+    <label id="psw">Password: </label>
+    <input type="text" name="userPsw" required class="from-control" ngModel #userPsw="ngModel">
+</div>
+<div>
+    <label id="email">Email: </label>
+    <input type="text" name="userEmail" required class="from-control" ngModel #userEmail="ngModel">
+</div>
+<div>
+    <label id="role">Role: </label>
+    <input type="text" name="userRole" required class="from-control" ngModel #userRole="ngModel">
+    <button type="button" (click)="addUser(userEmail,userName,userPsw,userRole)"style="width:70px;margin-left:13px"><label style="color:white">Add</label></button>
+</div>
+  
+<br>  
+
+<ul class="u">
+  <li *ngFor="let user of users" [class.selected]="user === selectedUser" (click)="onSelect(user)">
+    <button type="button" (click)="removeUser(user)" style="margin-right:17px"><label style="color:white">Remove</label></button>
+    <span id="us">{{user.name}}</span>
+  </li>
+</ul>
+
+<div *ngIf="selectedUser">
+
+  <h2>{{ selectedUser.name | uppercase }} details</h2>
+  <div><span style="margin-right:20px;margin-bottom:25px">email: </span><label style="font-size:23px">{{selectedUser.email}}</label></div>
+  <div><span style="margin-right:30px">role: </span><label style="font-size:23px">{{selectedUser.role}}</label></div>
+
+</div>
+
+</body>

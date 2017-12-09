@@ -1,0 +1,35 @@
+<body>
+
+<h1>Movies in the store</h1>
+
+<br>
+
+<h4>You can add new movie to the list.</h4>
+
+<div>
+    <label id="title">Title: </label>
+    <input type="text" name="movieTitle" required class="from-control" ngModel #movieTitle="ngModel"> 
+</div>
+<div>
+    <label id="year">Year: </label>
+    <input type="text" name="movieYear" required class="from-control" ngModel #movieYear="ngModel">
+    <button type="button" (click)="addMovie(movieTitle, movieYear)" style="width:70px;margin-left:13px"><label style="color:white">Add</label></button>
+</div>
+  
+<br>
+  
+<ul class="m">
+  <li *ngFor="let movie of movies" [class.selected]="movie === selectedMovie" (click)="onSelect(movie)">
+    <button type="button" (click)="removeMovie(movie)" style="margin-right:17px"><label style="color:white">Remove</label></button>
+    <span id="ms">{{movie.title}}</span>
+  </li>
+</ul>
+
+<div *ngIf="selectedMovie">
+
+  <h2>{{ selectedMovie.title | uppercase }} details</h2>
+  <div><span style="margin-right:20px">Year: </span><label style="font-size:23px">{{selectedMovie.year}}</label></div>
+
+</div>
+
+</body>

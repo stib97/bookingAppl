@@ -1,0 +1,63 @@
+body {
+  padding: 20px;
+}
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }
+  .u {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 23em;
+  }
+  .u li {
+    cursor: pointer;
+  }
+  .u li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+  }
+  .u li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+  }
+  .u .text {
+    position: relative;
+    top: -3px;
+  }
+ h1{
+  color: #800000;
+ }
+
+ #name {
+   margin-right: 30px;
+   padding: 3px;
+ }
+
+ #psw {
+  margin-right: 6px;
+  padding: 3px;
+ }
+ 
+ #role {
+  margin-right: 40px;
+  padding: 3px;
+}
+
+#email {
+ margin-right: 33px;
+ padding: 3px;
+}
+
+button {
+  height: 24px;
+  text-align: center;
+  font-size: 13px;
+  background-color: #4d0000;
+}
+
+#us {
+  font-size: 28px;
+  font-family: 'Josefin Slab', serif;
+ }

@@ -15,12 +15,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
 
 import static hu.stib97.bookingApp.security.UserRole.ADMIN;
 import static hu.stib97.bookingApp.security.UserRole.USER;
+
 
 @RestController
 @RequestMapping("api/user")
@@ -32,6 +35,8 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @CrossOrigin(origins = "http://localhost:4200")
+
     @Role(ADMIN)
     @PutMapping("add")
     public ResponseEntity<User> addNewUser(@RequestBody User user) {
@@ -42,6 +47,8 @@ public class UserController {
 
     @Role({ADMIN,USER})
     @PostMapping("login/{username}/{password}")
+
+    
     public ResponseEntity<User> login(@RequestParam String username, @RequestParam String password) {
         Optional<User> login = userService.login(username, password);
 

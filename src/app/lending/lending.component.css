@@ -1,0 +1,64 @@
+body{
+  padding: 20px;
+}
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }
+  .l {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 23em;
+  }
+  .l li {
+    cursor: pointer;
+  }
+  .l li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+  }
+  .l li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+  }
+  .l .text {
+    position: relative;
+    top: -3px;
+  }
+  h1{
+   color: #800000;
+  }
+ 
+  #date {
+    margin-right: 30px;
+    padding: 3px;
+  }
+ 
+  #bookid {
+   margin-right: 28px;
+   padding: 3px;
+  }
+
+  #movieid {
+    margin-right: 20px;
+    padding: 3px;
+  }
+ 
+  #userid {
+   margin-right: 31px;
+   padding: 3px;
+  }
+ 
+  button {
+    height: 27px;
+    text-align: center;
+    font-size: 13px;
+    background-color: #4d0000;
+  }
+ 
+  #ls {
+   font-size: 28px;
+   font-family: 'Josefin Slab', serif;
+  }
