@@ -105,7 +105,29 @@ export class LendingComponent implements OnInit {
 
   addLending(date: NgModel, bookId: NgModel, movieId: NgModel, userId: NgModel){
     const index = this.lendings.length + 1;
-    this.lendingService.add({id: index, date: date.value , bookid: bookId.value, movieid: movieId.value, userid: userId.value });
+
+    let b: number;
+    for(let book of this.books){
+      if( bookId.value == book.title ){
+         b = book.id;
+      }
+    }
+
+    let m: number;
+    for(let movie of this.movies){
+      if( movieId.value == movie.title ){
+         m = movie.id;
+      }
+    }
+
+    let u: number;
+    for(let user of this.users){
+      if( userId.value == user.name ){
+         u = user.id;
+      }
+    }
+ 
+    this.lendingService.add({id: index, date: date.value , bookid: b, movieid: m, userid: u });
     date.reset();
     bookId.reset();
     movieId.reset();
@@ -115,6 +137,5 @@ export class LendingComponent implements OnInit {
   removeLending(lending){
     this.lendingService.remove(lending);
   }
-
 
 }
